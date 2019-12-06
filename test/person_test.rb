@@ -26,10 +26,13 @@ class PersonTest < Minitest::Test
     @person1.prepare(@dish1)
     @person1.prepare(@dish2)
 
-    assert_equal [@dish1, @dish2], @person.dishes
+    assert_equal [@dish1, @dish2], @person1.dishes
   end
 
-  # Create a test to follow this interaction pattern:
-  # pry(main)> clarisa.dish_categories
-  # #> [:appetizer, :dessert]
+  def test_it_can_list_dish_categories
+    @person1.prepare(@dish1)
+    @person1.prepare(@dish2)
+
+    assert_equal [:appetizer, :dessert], @person1.dish_categories
+  end
 end

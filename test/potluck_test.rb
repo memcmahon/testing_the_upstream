@@ -14,11 +14,15 @@ class PotluckTest < Minitest::Test
     @dish6 = Dish.new("Rolls", :side)
     @dish7 = Dish.new("Snickerdoodles", :dessert)
     @person1 = Person.new('Clarisa')
-    @person1.prepare(@dish1, @dish4)
+    @person1.prepare(@dish1)
+    @person1.prepare(@dish4)
     @person2 = Person.new('Dolly')
-    @person2.prepare(@dish2, @dish7, @dish3)
+    @person2.prepare(@dish2)
+    @person2.prepare(@dish7)
+    @person2.prepare(@dish3)
     @person3 = Person.new('Jim')
-    @person3.prepare(@dish5, @dish6)
+    @person3.prepare(@dish5)
+    @person3.prepare(@dish6)
     @person4 = Person.new('Vince')
     @potluck = Potluck.new({
       date: '12-12-19',
@@ -39,8 +43,14 @@ class PotluckTest < Minitest::Test
 
   def test_it_can_list_dish_names
     expected = [
-      # list of dish names; ex: 'Couscous Salad'
+      "Couscous Salad",
+      "Broccoli",
+      "Scotcheroos",
+      "Snickerdoodles",
+      "Pizza",
+      "Cheese and Crackers",
+      "Rolls",
     ]
-    assert_equal [], @potluck.dishes
+    assert_equal expected, @potluck.dishes
   end
 end
